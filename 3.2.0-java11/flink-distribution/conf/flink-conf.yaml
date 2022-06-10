@@ -61,3 +61,7 @@ taskmanager.memory.process.size: 4g
 pipeline.auto-generate-uids: false
 execution.savepoint.ignore-unclaimed-state: true
  
+#==============================================================================
+# Other configurations
+#==============================================================================
+parallelism.default: 2
