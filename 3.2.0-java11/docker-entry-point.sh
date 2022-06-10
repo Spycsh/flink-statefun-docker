@@ -36,7 +36,7 @@ if [[ "${ROLE}" == "${WORKER}" ]]; then
   #
   # start the TaskManager (worker role)
   #
-  exec ${FLINK_HOME}/bin/taskmanager.sh start-foreground \
+  exec ${FLINK_HOME}/bin/taskmanager.sh -p 2 start-foreground \
     -Djobmanager.rpc.address=${MASTER_HOST}
 
 elif [[ "${ROLE}" == "${MASTER}" ]]; then
