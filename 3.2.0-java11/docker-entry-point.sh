@@ -32,8 +32,8 @@ TASK_MANAGER_SLOT_NUMBER=${TASK_MANAGER_SLOT_NUMBER:-"2"}
 PARALLELISM_DEFAULT=${PARALLELISM_DEFAULT:="2"}
 
 # configure flink-conf.yaml
-echo taskmanager.numberOfTaskSlots: ${TASK_MANAGER_SLOT_NUMBER} >> a.txt
-echo parallelism.default: ${PARALLELISM_DEFAULT} >> a.txt
+echo taskmanager.numberOfTaskSlots: ${TASK_MANAGER_SLOT_NUMBER} >> ${FLINK_HOME}/conf/flink-conf.yaml
+echo parallelism.default: ${PARALLELISM_DEFAULT} >> ${FLINK_HOME}/conf/flink-conf.yaml
 
 #
 # Start a service depending on the role.
