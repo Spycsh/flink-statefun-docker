@@ -28,6 +28,12 @@ MASTER="master"
 FLINK_HOME=${FLINK_HOME:-"/opt/flink/bin"}
 ROLE=${ROLE:-"worker"}
 MASTER_HOST=${MASTER_HOST:-"localhost"}
+TASK_MANAGER_SLOT_NUMBER=${TASK_MANAGER_SLOT_NUMBER:-"2"}
+PARALLELISM_DEFAULT=${PARALLELISM_DEFAULT:="2"}
+
+# configure flink-conf.yaml
+echo taskmanager.numberOfTaskSlots: ${TASK_MANAGER_SLOT_NUMBER} >> a.txt
+echo parallelism.default: ${PARALLELISM_DEFAULT} >> a.txt
 
 #
 # Start a service depending on the role.
@@ -36,7 +42,7 @@ if [[ "${ROLE}" == "${WORKER}" ]]; then
   #
   # start the TaskManager (worker role)
   #
-  exec ${FLINK_HOME}/bin/taskmanager.sh -p 2 start-foreground \
+  exec ${FLINK_HOME}/bin/taskmanager.sh -p start-foreground \
     -Djobmanager.rpc.address=${MASTER_HOST}
 
 elif [[ "${ROLE}" == "${MASTER}" ]]; then
