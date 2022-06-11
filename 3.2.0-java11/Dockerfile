@@ -22,6 +22,8 @@ ENV ROLE worker
 ENV MASTER_HOST localhost
 ENV STATEFUN_HOME /opt/statefun
 ENV STATEFUN_MODULES $STATEFUN_HOME/modules
+ENV TASK_MANAGER_SLOT_NUMBER 2
+ENV PARALLELISM_DEFAULT 2
 
 # Cleanup flink-lib
 RUN rm -fr $FLINK_HOME/lib/flink-table*jar
